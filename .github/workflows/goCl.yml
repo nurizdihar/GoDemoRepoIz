@@ -24,3 +24,9 @@ jobs:
       run: | 
         go version
         ls
+        
+    - name: Checkout my codes
+      uses: actions/checkout@v2
+
+    - name: Check file system
+      run: ls
