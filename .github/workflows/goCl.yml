@@ -50,6 +50,7 @@ jobs:
       run: | 
         go get github.com/franela/goblin
         go get github.com/tebeka/go2xunit
+        go test -v 
         go test -v | go2xunit > report.xml
         ls
         
@@ -58,3 +59,12 @@ jobs:
       if: always()
       with:
         files: report.xml
+    - if: ${{ failure()}}
+      name: create issues
+      uses: nashmaniac/create-issue-action@v1.1
+      with: 
+        title: Build failed
+        token: ${{secrets.SECRET}}
+        assignees: ${{github.actor}}
+        labels: workflow-failed
+        body: Workflow failed for commit ${{github.sha}}
