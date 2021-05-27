@@ -41,7 +41,7 @@ jobs:
     - name: Check files
       run:  | 
         ls
-        cd remoteRepo
+        cd remoteRep
         ls
         cat myText.txt
         cd ..
