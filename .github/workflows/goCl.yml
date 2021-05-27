@@ -36,7 +36,7 @@ jobs:
       with:
         repository: lowkh2/GoSchoolRemoteExample
         path: remoteRep
-        token: ${{ secret.SECRET }}
+        token: ${{ secrets.SECRET }}
       
     - name: Check files
       run:  | 
